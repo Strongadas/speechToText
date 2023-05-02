@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+    <title>Text To Speach </title>
+
+</head>
+
+<body>
+      <!-- header start -->
+  <header class="header">
+    <div class="container">
+       <div class="header-main">
+          <div class="logo">
+             <a href="index.html"></a>
+          </div>
+          <div class="open-nav-menu">
+             <span></span>
+          </div>
+          <div class="menu-overlay">
+          </div>
+          <!-- navigation menu start -->
+          <nav class="nav-menu">
+            <div class="close-nav-menu">
+               <img src="img/close.svg" alt="close" id="close">
+            </div>
+            <ul class="menu">
+           
+               <li class="menu-item">
+                  <a href="index.html">Speech To Text</a>
+               </li>
+            
+               <li class="menu-item">
+                 <a href="../full speach-text converter/text.html">Text To Speech</a>
+               </li>
+               
+            </ul>
+          </nav>
+          <!-- navigation menu end -->
+       </div>
+    </div>
+ </header><br> <br> <br> <br>
+ <!-- header end -->
+
+ <div class="wrapper">
+
+    <header>Text To Speech</header>
+    <form action="#">
+      <div class="row">
+        <label>Enter Text</label>
+        <textarea id='txtInput' cols="30" rows="10"></textarea>
+      </div>
+
+      <div class="row">
+        <label>Select Voice</label>
+        <div class="outer">
+          <select id="voiceList"></select>
+        </div>
+      </div>
+      <button id='btnSpeak'>Speak!</button>
+    </form>
+  </div>
+
+  <script src="script2.js"></script>
+<script src="../js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+*,*:after,*:before{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+   }
+   body{
+    font-family: arial;
+    font-size: 16px;
+    margin: 0;
+    background: #5256AD;
+    color: #000;
+    display: flex;
+     align-items: center;
+     justify-content: center;
+     min-height: 100vh;
+   }
+   
+
+ 
+   #convert_text{
+        width: 100%;
+        height: 200px;
+        resize: vertical; /* or horizontal, both, none */
+        border-radius: 5px;
+     
+   }
+
+   button[type="submit"]{
+    background: green;
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+ 
+      }
+  
+
+button[type="button"]{
+    background: red;
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+    
+}
+button[type="submit"]:hover{
+    transform: translateY(-4px);
+    
+}
+
+button[type="button"]:hover{
+    transform: translateX(-2px); 
+  }
+
+
+h1 {
+    font-size: 48px; /* Default font size */
+    color: #fff;
+    text-align: center;
+    
+   }
+   p{
+    color: white;
+    text-align:center;
+    position: relative;
+    
+   }
+   p a{
+    color: white;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out;
+
+    
+   }
+   p a:hover{
+    color: green;
+    transform: translateX(-2px);
+    
+   }
+ 
+   /* Media query for screens smaller than 768px */
+   @media (max-width: 767px) {
+    h1 {
+     font-size: 36px;
+    }
+   }
+ 
+   /* Media query for screens smaller than 576px */
+   @media (max-width: 575px) {
+    h1 {
+     font-size: 24px;
+    }
+   }
+
+/* Small screens */
+@media(max-width: 307px) {
+    #convert_text {
+      font-size: 25px;
+      padding: 20px;
+      border-radius: 10px;
+    }
+  }
+  
+  /* Large screens */
+  @media (min-width: 601px) {
+    #convert_text {
+      font-size: 18px;
+      padding: 20px;
+    }
+  }

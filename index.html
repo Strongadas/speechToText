@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <title>Speech To text </title>
+
+</head>
+
+<body>
+      <!-- header start -->
+  <header class="header">
+    <div class="container">
+       <div class="header-main">
+          <div class="logo">
+             <a href="index.html"></a>
+          </div>
+          <div class="open-nav-menu">
+             <span></span>
+          </div>
+          <div class="menu-overlay">
+          </div>
+          <!-- navigation menu start -->
+          <nav class="nav-menu">
+            <div class="close-nav-menu">
+               <img src="img/close.svg" alt="close" id="close">
+            </div>
+            <ul class="menu">
+           
+               <li class="menu-item">
+                  <a href="index.html">Speech To Text</a>
+               </li>
+            
+               <li class="menu-item">
+                 <a href="../full speach-text converter/text.html">Text To Speech</a>
+               </li>
+               
+            </ul>
+          </nav>
+          <!-- navigation menu end -->
+       </div>
+    </div>
+ </header><br> <br> <br> <br>
+ <!-- header end -->
+
+ <div class="wrapper">
+
+   <header>Speech To Text</header>
+   <form action="#">
+     <div class="row">
+       <label>You said :
+       </label>
+       <textarea id="convert_text" rows="10" cols="30"></textarea>
+     </div>
+
+     <button type="submit" id="click_to_record">Speak!</button>
+     <button type="button" id="click_to_record">Stop!</button>
+   </form>
+ </div>
+
+ <script>
+     const textarea = document.getElementById("convert_text")
+
+     let form = document.querySelector("form");
+
+     let sr = window.webkitSpeechRecognition || window.SpeechRecognition;
+
+     let spRec = new sr();
+
+     spRec.lang = "en";
+
+     spRec.continuous = true;
+
+     spRec.interimResults = true;
+
+     textarea.scrollTop= textarea.scrollHeight;
+
+     // console.log(spRec);
+
+     form.addEventListener("submit", e => {
+
+         e.preventDefault();
+
+         spRec.start();
+
+     })
+
+     spRec.onresult = res => {
+
+         let text = Array.from(res.results)
+
+             .map(r => r[0])
+
+             .map(txt => txt.transcript)
+
+             .join("");
+
+         form[0].value = text;
+
+         // console.log(text);
+
+     }
+
+     form[2].addEventListener("click", () => {
+
+         spRec.stop()
+
+     })
+   
+
+ </script>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

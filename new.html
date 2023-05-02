@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">  
+    <title>Text To Speech in JavaScript | CodingNepal</title>
+    <link rel="stylesheet" href="style2.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+
+    <div class="wrapper">
+
+      <header>Speech To Text</header>
+      <form action="#">
+        <div class="row">
+          <label>You said :
+          </label>
+          <textarea id="convert_text" rows="10" cols="30"></textarea>
+        </div>
+
+        <button type="submit" id="click_to_record">Speak!</button>
+        <button type="button" id="click_to_record">Stop!</button>
+      </form>
+    </div>
+
+    <script>
+        const textarea = document.getElementById("convert_text")
+
+        let form = document.querySelector("form");
+
+        let sr = window.webkitSpeechRecognition || window.SpeechRecognition;
+
+        let spRec = new sr();
+
+        spRec.lang = "en";
+
+        spRec.continuous = true;
+
+        spRec.interimResults = true;
+
+        textarea.scrollTop= textarea.scrollHeight;
+
+        // console.log(spRec);
+
+        form.addEventListener("submit", e => {
+
+            e.preventDefault();
+
+            spRec.start();
+
+        })
+
+        spRec.onresult = res => {
+
+            let text = Array.from(res.results)
+
+                .map(r => r[0])
+
+                .map(txt => txt.transcript)
+
+                .join("");
+
+            form[0].value = text;
+
+            // console.log(text);
+
+        }
+
+        form[2].addEventListener("click", () => {
+
+            spRec.stop()
+
+        })
+      
+
+    </script>
+
+  </body>
+</html>
+
+
+
+<div class="wrapper">
+
+    <header>Text To Speech</header>
+    <form action="#">
+      <div class="row">
+        <label>Enter Text</label>
+        <textarea id='txtInput' cols="30" rows="10"></textarea>
+      </div>
+
+      <div class="row">
+        <label>Select Voice</label>
+        <div class="outer">
+          <select id="voiceList"></select>
+        </div>
+      </div>
+      <button id='btnSpeak'>Speak!</button>
+    </form>
+  </div>
+
+  <script src="script2.js"></script>
+
+</body>
+</html>
